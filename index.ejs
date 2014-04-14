@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Charlotte Lab</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Theme CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+	
+	<style>
+		.glyphicon-hdd {
+			width: 96px;
+			height: 96px;
+			background-size: 938px 318px;
+			background-position: -624px -48px;
+		} 
+		
+		
+		.form-signin
+		{
+			max-width: 330px;
+			padding: 15px;
+			margin: 0 auto;
+			
+		}
+		.form-signin .form-signin-heading, .form-signin .checkbox
+		{
+			margin-bottom: 10px;
+		}
+		.form-signin .checkbox
+		{
+			font-weight: normal;
+		}
+		.form-signin .form-control
+		{
+			position: relative;
+			font-size: 16px;
+			height: auto;
+			padding: 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.form-signin .form-control:focus
+		{
+			z-index: 2;
+		}
+		.form-signin input[type="text"]
+		{
+			margin-bottom: -1px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.form-signin input[type="password"]
+		{
+			margin-bottom: 10px;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+		.account-wall
+		{
+			margin-top: 20px;
+			padding: 40px 0px 20px 0px;
+			background-color: #f7f7f7;
+			-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			border-radius : 10px;
+			opacity:0.90;
+			filter:alpha(opacity=90);
+		}
+		.login-title
+		{
+			color: #555;
+			font-size: 18px;
+			font-weight: 400;
+			display: block;
+		}
+		.profile-img
+		{
+			width: 96px;
+			height: 96px;
+			margin: 0 auto 10px;
+			display: block;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+		}
+		.need-help
+		{
+			margin-top: 10px;
+		}
+		.new-account
+		{
+			display: block;
+			margin-top: 10px;
+		}
+	</style>
+  
+  
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+					<a href="#"><i class="fa fa-bars"></i></a>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">CLT Lab</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="hidden-xs">
+				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+					<ul class="nav navbar-nav ulClass">
+						<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="page-scroll hidden" style="text-align:left">
+							<a id="aReservation" href="#reservation" onclick="$('#reservation').removeClass('hidden').addClass('visible');"><center><i class="glyphicon glyphicon-th-list"></i></center></a>
+						</li>
+						<li class="page-scroll" style="text-align:left">
+							<a id="aAbout" href="#about"><center><i class="glyphicon glyphicon-info-sign"></i></center></a>
+						</li>
+						<li class="page-scroll hidden" style="text-align:left">
+								<!-- Button trigger modal -->
+							
+							<a data-toggle="modal" data-target="#myModal"><center><i class="glyphicon glyphicon-envelope"></i></center></a>
+			
+						</li>
+						
+						<li class="page-scroll hidden" style="text-align:left">
+							<a href="#inventoryControl"><center><i class="fa fa-building-o"></i></center></a>
+						</li>
+						
+						<li class="page-scroll hidden" style="text-align:left">
+							<a href="/"><center><i class="glyphicon glyphicon-log-out"></i></center></a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="ui-widget">
+                          <label for="tags">Tags: </label>
+                          <input id="tags" style="color:black">
+                        </div>
+					</form>
+				</div>
+			</div>
+			
+			
+			
+			<div class="visible-xs">
+				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+					<ul class="nav navbar-nav ulClass" style="font-size:0.75em">
+						<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="page-scroll hidden" style="font-size:1em; text-align:left">
+								<a href="#reservation" onclick="$('#reservation').removeClass('hidden').addClass('visible');"><center><i class="glyphicon glyphicon-th-list" style="float:right"></i></center>My Reservations</a>
+						</li>
+						<li class="page-scroll" style="font-size:1em; text-align:left">
+							<a href="#about"><center><i class="glyphicon glyphicon-info-sign" style="float:right"></i></center>About</a>
+						</li>
+						<li class="page-scroll" style="font-size:1em; text-align:left">
+							<a data-toggle="modal" data-target="#myModal"><center><i class="glyphicon glyphicon-envelope" style="float:right"></i></center>Feedback</a>
+						</li>
+						<li class="page-scroll hidden" style="font-size:1em; text-align:left">
+						<a href="#contact"><center><i class="glyphicon glyphicon-log-out" style="float:right"></i></center>Logout</a>
+						</li>
+					</ul>
+					<div class="ui-widget">
+                      <label for="tags">Tags: </label>
+                      <input id="tags2" style="color:black">
+                    </div>
+					</div>
+				  </form>
+				</div>
+			</div>
+			
+			
+			
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	<section id="loginform" class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+
+					<div class="col-xs-10 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-xs-offset-1 col-md-offset-4">
+						
+						<br><br><br>
+						<div id="signIN" class="account-wall visible">
+							
+							<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+								alt="">
+							<form class="form-signin">
+								
+								<input type="text" class="form-control" id = "Login-empID" placeholder="TCS ID" required autofocus>
+								
+								<input type="password" class="form-control" id = "Login-Password" placeholder="Password" required>
+								<button type="submit" class="btn btn-lg btn-success btn-block " data-loading-text="Signing In..." type = "button" id="sendLogin">Sign In</button>
+								
+								
+							
+							</form>
+							<a href="#crate" class="text-center new-account"> Don't have account ? <u>Create</u> </a>
+						</div>
+						
+						
+						<div id="signUP" class="account-wall hidden">
+							
+							<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+								alt="">
+							<form class="form-signin">
+								
+								
+								<input type="text" class="form-control" id = "Login-empID-signUP" placeholder="TCS ID" required autofocus>
+								<input type="text" class="form-control" id = "Login-name-SignUP" placeholder="Full Name" required >
+								<input type="text" class="form-control" id = "Login-email-SignUP" placeholder="Email" required >
+								
+								<input type="password" class="form-control" id = "Login-Password-SignUP" placeholder="Password" required>
+								<input type="password" class="form-control" id = "Login-ConfirmPassword-SignUP" placeholder=" Confirm Password" required>
+								<button class="btn btn-lg btn-success btn-block " data-loading-text="Signing Up..." type = "button" id="sendSignUP">Sign Up</button>
+								
+							
+							</form>
+							<a href="#sign" class="text-center sign-in">Sign In </a>
+						</div>
+						
+					</div>
+					
+  
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <section id="workStationList" class="hidden">
+        <div class="intro-body">
+            <div class="container" style="padding-top:100px">
+				<div class = "page-header">
+						<h3>Pick Your Workstation To Reserve</h3>
+				</div>
+                <div class="row">
+					<input type="hidden" id="testinput" placeholder="text" value="test"></input>
+					<form id="workstationform" name="workstationform" >
+						<div class="btn-group page-scroll visible-lg visible-md">
+							<div class="col-md-12 col-md-offset-0" style="padding-bottom:50px">	
+								<div class="col-md-2 col-md-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+											<a href="#timeslot">
+											<button type="button" id="workstation5" value="5" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 5</button></i>
+											</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation6" value="6" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 6</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation7" value="7" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 7</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+										<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+											<button type="button" id="workstation8" value="8" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 8</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation9" value="9" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 9</button></i>
+										</a>
+								</div>
+							</div>
+							<div class="col-md-12 col-md-offset-0">	
+								<div class="col-md-2 col-md-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation10" value="10" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 10</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation11" value="11" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 11</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+								<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+									<a href="#timeslot">
+									<button type="button" id="workstation12" value="12" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 12</button></i>
+									</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation13" value="13" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 13</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation14" value="14" class="btn btn-default btn-md WButton" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 14</button></i>
+										</a>
+								</div>
+							</div>
+						</div>
+					
+						<div class="btn-group page-scroll hidden-lg hidden-md">
+							<div class="col-md-12 col-md-offset-0" style="padding-bottom:50px">	
+								<div class="col-md-2 col-md-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+											<a href="#timeslot">
+											<button type="button" id="workstation11" value="workstation1" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 5</button></i>
+											</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation12" value="workstation2" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 6</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation13" value="workstation3" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 7</button></i>
+										</a>
+										<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+											<button type="button" id="workstation14" value="workstation4" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 8</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation15" value="workstation5" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 9</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation16" value="workstation6" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 10</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation17" value="workstation7" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 11</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation18" value="workstation8" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 12</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation19" value="workstation9" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 13</button></i>
+										</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation20" value="workstation10" class="btn btn-default btn-md" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 14</button></i>
+										</a>
+								</div>
+							</div>
+							
+						</div>	
+					</form>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="timeslot" class="container content-section text-center hidden">
+		<div class = "container">
+			<div class = "row">                  
+				<div class = "col-lg-12 col-xs-12 col-sm-12 col-md-12 page-scroll">
+					<div class = "panel panel-default">
+				   
+						<div class = "panel-body">
+						
+							<div class = "page-header">	
+
+								<form class="form-inline" role="form">						
+								
+									<input type="text" class="form-control" id="datepicker2" placeholder="pick your date">
+									
+									<button type="button" id="SubmitForTimeslot" class="btn btn-default" data-loading-text="Wait...">submit</button>
+									
+								</form>
+								
+							</div>
+							
+							<div id='AvailablityTable'>
+							
+							</div>
+							<a href="#download">
+								<button type="button" id="submitbutton123" class="btn btn-default btn-md hidden" >Done</button></td>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+
+    <section id="reservation" class="container content-section text-center hidden">
+		
+			<div class = "container">
+                    <div class = "row">                  
+                        <div class = "col-lg-12  page-scroll">
+                            <div class = "panel panel-default">
+                                <div class = "panel-body">
+									<p> <font color="black">
+									<div class="table-responsive">
+                                    </div>
+									<p> <font color="black">Please use the dropdown below to choose the date you would like to check your reservations for
+										<!-- <form action="demo_form.asp"> --> 
+										<input type="text" id="datepicker">
+										<input type="submit" onclick="$('#timeslot1234').removeClass('hidden').addClass('visible');">
+										<!-- </form> --> 
+										
+										<form id="myreservations" name="myreservations" action="/myreservations" method="post">
+		
+											<table id="timeslot1234" class="table table-hover hidden">
+												<h4><caption>Your Reserved Times</caption></h4>
+												<th colspan=6>
+													<center>Times</center>
+												</th>
+												<tr>
+													<td><button type="submit" class="btn btn-success btn-md">8:00am-9:00am</button><input type="image" src="img/imageX.jpg" id="reservationbutton1" value="reservecancel1"></input></td>
+													<td><button type="submit" class="btn btn-success btn-md">3:00pm-4:00pm</button><input type="image" src="img/imageX.jpg" id="reservationbutton2" value="reservecancel2"></i></td>
+												</tr>
+												<tr>
+													<td><button type="submit" class="btn btn-success btn-md">4:00pm-5:00pm</button><input type="image" src="img/imageX.jpg" id="reservationbutton3" value="reservecancel3"></i></td>
+													<td><button type="submit" class="btn btn-success btn-md">9:00pm-10:00pm</button><input type="image" src="img/imageX.jpg" id="reservationbutton4" value="reservecancel4"></i></td>
+												</tr>
+												<tr>
+													<td><button type="submit" class="btn btn-success btn-md">10:00pm-11:00pm</button><input type="image" src="img/imageX.jpg" id="reservationbutton5" value="reservecancel5"></i></td>
+													<td><button type="submit" class="btn btn-success btn-md">11:00pm-12:00am</button><input type="image" src="img/imageX.jpg" id="reservationbutton6" value="reservecancel6"></i></td>
+												</tr>
+											</table>
+
+									</div>
+									</form>
+									</font></p>                                   
+                            </div>
+						</div>
+                </div>
+            </div>
+
+    </section>
+	
+	<section id="download" class="content-section text-center hidden">
+         <div class="download-section">
+             <div class="container">
+                 <div class="col-lg-6 col-lg-offset-4">
+ 					<div class="panel panel-primary">
+ 						<!-- Default panel contents -->
+ 						<div class="panel-heading">Please Enter Your Statement of Purpose</div>
+ 						<!-- Table -->
+ 						<div class="input-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ 							<textarea id="reserveComment" rows="6" class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="" style="width:100%;"></textarea>
+ 						</div>
+					</div>
+					<p></p>
+					<form id="reserve" name="reserve" >
+						<button type="submit" id="reservebutton" value="reserve1" class="btn btn-default btn-lg" data-loading-text="Wait..." >Reserve</button>
+					</form>
+					</div>
+             </div>
+         </div>
+    </section>
+
+	 
+	<section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2" style="color:white">
+                <h2>About this webpage</h2>
+                <p>This webpage has been created using Bootstrap UI Framework, jQuery/AJAX, Express NodeJS Framework, and MongoDB for the database.</p>
+				<p>It is hosted on Heroku.<p>
+                <p hidden>Our team had three on the backend working with NodeJS, three on the frontend working with ajax and bootstrap, and two working on documentation.</p>
+                <p  hidden>The following people were assigned to each component:</p>
+				<p>Frontend: Dumar Canas, Brian Ferry, Nebil Sherif</p>
+				<p>Backend: Steven Pettit, Kevin Silliman, Yu Chen</p>
+				<p>Documentation: Josette Seitz, David Duran</p>
+            </div>
+        </div>
+    </section>
+
+	<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form id="setNick1" class="form-horizontal" action="/feedback" method="POST">
+						<div class="modal-header">
+							<h4>TCS Lab Feedback</h4>
+						</div>
+						<div id="thank"></div>
+						<div class="modal-body" id="feedForm">                    
+							<div class="form-group">
+								<label for="contact-msg" class="col-sm-2 control-label">Message:</label>
+								<div class="col-sm-10">
+									<textarea name="feedback" id="contact-feedback" class="form-control" rows="8"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<a class="btn btn-default" data-dismiss="modal" id="btnClose">Close</a>    
+							<button class="btn btn-success" data-loading-text="sending..." type="button" id="sendFeedback">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Success!</h4>
+			  </div>
+			  <div class="modal-body">
+				You have successfully registered!
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+    <!-- Core JavaScript Files -->
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
+	<script src = "js/bootstrap.js"></script>
+
+	
+	<script>
+		jQuery(function($){
+			
+			$( "#datepicker" ).datepicker();
+			$( "#datepicker2" ).datepicker();
+			//alert('Hello');
+			var $sessionData = {};
+			var $mc = '';
+			var dataR = {};
+			var timeRange = '00:00-00:00';
+			var arrayOfBlockedTime  = {};
+			var $nDate = new Date();
+			
+			$('#sendLogin').click(function(e){
+				e.preventDefault();
+				
+				
+				if($('#Login-empID').val() ==""){
+					alert('Please enter Employee ID');
+					return false;
+				}
+				
+				if($('#Login-Password').val() == ""){
+					alert('Please enter Password');
+					return false;
+				}
+				var btn = $(this);
+				btn.button('loading');
+				var data = {};
+				data.emp = $('#Login-empID').val();
+				data.pass = $('#Login-Password').val();
+				
+				$.ajax({
+					type: 'POST',
+					data: JSON.stringify(data),
+					contentType: 'application/json',
+					url: '/LoginReservation',						
+					success: function(data) {
+						
+						if(data.msg=='Wrong'){
+							alert('Wrong UserID or Password');
+							btn.button('reset');
+						}
+						else if(data.msg= 'success'){
+						
+							btn.button('reset');
+							$sessionData.emp= data.emp;
+							$sessionData.name = data.name;
+							$(".ulClass li:nth-child(2)").removeClass("hidden");
+							$(".ulClass li:nth-child(5)").removeClass("hidden");
+							$(".ulClass li:nth-child(6)").removeClass("hidden");
+							$(".ulClass li:nth-child(4)").removeClass("hidden");
+							$("#loginform").addClass("hidden");
+							$("#workStationList").removeClass("hidden").addClass("intro");
+						}
+						
+						
+					},
+					error: function (error) {
+						btn.button('reset');
+						alert('error');
+					}
+					
+				});	
+			
+			});
+			
+			
+			
+			
+			$('.sign-in').click(function(e){
+				$('#signUP').removeClass("visible").addClass('hidden');
+				$('#signIN').removeClass("hidden").addClass('visible');
+			});
+			
+			
+			
+			
+			
+			$('.new-account').click(function(e){
+				
+				$('#signIN').removeClass("visible").addClass('hidden');
+				$('#signUP').removeClass("hidden").addClass('visible');
+			});
+		
+
+
+
+		
+		
+			$('#sendSignUP').click(function(e){
+				e.preventDefault();
+				var $empID = $('#Login-empID-signUP').val();
+				var $name  = $('#Login-name-SignUP').val();
+				var $email = $('#Login-email-SignUP').val();
+				var $pass  = $('#Login-Password-SignUP').val();
+				var $cPass = $('#Login-ConfirmPassword-SignUP').val();
+				
+				if($empID == '' || $empID != parseInt($empID)){
+					alert('Employee ID can not be blank' );
+					return false;
+				}
+				
+				if($name =="" || $name == parseInt($name)){
+					alert('Name can not be blank or Numeric');
+					return false;
+				}
+				
+				if($email == ''){
+					alert('Email can not be blank');
+					return false;
+				}
+				else{
+					$emailAfterAt = $email.split('@');
+					//alert($emailAfterAt[1]);
+					if(($emailAfterAt[1]).toLowerCase() != 'tcs.com') {
+						alert('Only TCS email');
+						return false;
+					}
+				}
+				
+				if($pass == '' || $cPass == ''){
+					alert('Password can not be blank');
+					return false;
+				}
+				
+				if($pass != $cPass){
+					alert('Pass != Confirm Pass');
+					return false;
+				}
+				var btn = $(this);
+				btn.button('loading');
+				var data = {};
+				
+				data.employee = $empID;
+				data.name = $name;
+				data.email = $email;
+				data.pass = $pass;
+				$.ajax({
+					type: 'POST',
+					data: JSON.stringify(data),
+					contentType: 'application/json',
+					url: '/SignUpReservation',						
+					success: function(data) {
+						if(data.msg == 'AE'){
+							alert('Already Exisit');
+							btn.button('reset');
+						}
+						else{
+							
+							alert('Success');
+							btn.button('reset');
+							$('#signUP').removeClass("visible").addClass('hidden');
+							$('#signIN').removeClass("hidden").addClass('visible');
+						}
+						
+						
+					},
+					error: function (error) {
+						btn.button('reset');
+						alert('error connecting Server');
+					}
+					
+				});	
+			
+			});
+		
+		
+			$(".ulClass li:nth-child(6)").click(function(e){
+				e.preventDefault();
+				$sessionData = {};
+				//alert($sessionData);
+				window.location.href ='/';
+			});
+			
+			$('.WButton').click(function(e){
+				$('#timeslot').removeClass('hidden').addClass('visible'); 
+				$mc = this.value;
+				alert($mc);
+			
+			
+			});
+		
+			$('#SubmitForTimeslot').click(function(e){
+				e.preventDefault();
+				
+				if(!$('#submitbutton123').hasClass('hidden')){
+					$('#submitbutton123').addClass('hidden')		
+				}
+				
+				$date = $('#datepicker2').val();
+				if($date == '' || isFinite($date)){
+					alert('Please select date');
+					return false;
+				}
+				$nDate = new Date($date);
+				$fdate = new Date($nDate.getFullYear(),$nDate.getMonth(),$nDate.getDate(),00,00,00,00);
+				$tdate = new Date($nDate.getFullYear(),$nDate.getMonth(),$nDate.getDate(),23,59,59,00);
+				
+				//alert($fdate + ' ' + $tdate);
+				
+				
+				dataR.fDate = $fdate;
+				dataR.tDate = $tdate;
+				dataR.mc = $mc;
+				var btn = $(this);
+				
+				
+				btn.button('loading');
+				$('#AvailablityTable').html('<img src="http://www.travislayne.com/images/loading.gif" class="icon" />');
+				$.ajax({
+					type: 'POST',
+					data: JSON.stringify(dataR),
+					contentType: 'application/json',
+					url: '/availReservation',						
+					success: function(data) {
+						arrayOfBlockedTime = data.msg;
+						$('#AvailablityTable').html('<img src="http://www.travislayne.com/images/loading.gif" class="icon" />');
+						btn.button('reset');
+						var htmlString = '<div  class="table-responsive" style="height:300px;overflow-y:scroll;overflow-x:scroll;">';
+						htmlString = htmlString + '<table class="table table-hover" width="100%">';
+						//console.log(array['08:00-09:01']);
+						//console.log();
+						
+						htmlString = htmlString+ '<tr>';
+						var btnClass = '';
+						for(var i=0;i<=23;i++){
+							
+							if(i%3 == 0 && i !=0 ) {
+								htmlString = htmlString + '</tr>';
+								htmlString = htmlString + '<tr>';
+							}
+							
+							var f = i < 10 ? '0'+ i.toString() : i.toString();
+							var t = (i+1) < 10 ? '0'+ (i+1).toString() : (i+1).toString();
+							var timeString = f +':00-'+t+':00';
+							
+							if(data.msg[timeString] != undefined){
+							
+								btnClass = 'btn-danger';
+							}
+							else {
+								btnClass = 'btn-success clickable';
+							}
+							htmlString = htmlString + '<td><button type="button" id="'+timeString+'" value="'+timeString+'" class="btn '
+													+ btnClass+' btn-md">'+timeString+'</button></td>';
+							
+							
+					
+							
+						
+						}
+						htmlString = htmlString + '</tr></table>';
+						$('#AvailablityTable').html('');
+						//console.log(htmlString);
+						$('#AvailablityTable').html(htmlString);
+						$('#submitbutton123').removeClass('hidden');
+						
+						
+					},
+					error: function (error) {
+						btn.button('reset');
+						alert('error connecting to Server');
+					}
+					
+				});	
+				
+				
+				
+			});
+		
+			$(document).on('click', '.clickable', function(e){
+				if(!$(this).hasClass("btn-warning")){
+					$(this).removeClass('btn-success clickable').addClass('btn-warning');
+					if(timeRange =='00:00-00:00'){
+						timeRange = this.value;
+					}
+					else{
+						//var timeRangeArray = timeRange.split('-');
+						var tempTimeRange = timeRange;
+						if(timeRange.split('-')[0] >(this.value).split('-')[0]) {
+							
+							timeRange = (this.value).split('-')[0] +'-'+timeRange.split('-')[1];
+						}
+						else if (timeRange.split('-')[0] < (this.value).split('-')[0]){
+								timeRange = timeRange.split('-')[0] +'-'+(this.value).split('-')[1];
+							}
+							else {
+									alert('Already Selected');
+							}
+							
+						if(checkTime(timeRange)){
+							alert('Can not book: ' + timeRange);
+							timeRange = tempTimeRange;
+							$(this).removeClass('btn-warning').addClass('btn-success clickable');
+							
+							
+						}
+						
+					}
+					
+					alert(timeRange);
+				}
+				else{
+					alert('Already Selected');
+				}
+				
+			});
+		
+			
+			var checkTime = function($value){
+				
+				var $fValue = $value.split('-')[0].split(':')[0];
+				var $tValue = $value.split('-')[1].split(':')[0];
+				
+				alert($fValue  +  ' ' + $tValue);
+				var flag = false;
+				while (!flag && $fValue != $tValue){
+					var sString = $fValue + ':00-' ;
+					var end		= parseInt($fValue) + 1;
+					var eString = end < 10 ? '0'+ end.toString() : end.toString();
+					var tString = sString + eString + ':00'; alert(tString);
+					if(arrayOfBlockedTime[tString] != undefined){
+						flag = true;
+					}
+					$fValue = eString;
+					
+				}
+				alert(flag);
+				return flag;
+				
+				
+				
+			};
+			$(document).on('click', '#submitbutton123', function(e){
+			
+				alert('submitbutton123');
+				if(timeRange == '00:00-00:00'){
+					alert('Please select');
+					return false;
+				}
+				$sessionData.mc = $mc;
+				$sessionData.from = new Date($nDate.getFullYear(),$nDate.getMonth(),$nDate.getDate(),timeRange.split('-')[0].split(':')[0],timeRange.split('-')[0].split(':')[1],00,00);
+				$sessionData.to = new Date($nDate.getFullYear(),$nDate.getMonth(),$nDate.getDate(),timeRange.split('-')[1].split(':')[0],timeRange.split('-')[1].split(':')[1],00,00);
+				
+				console.log($sessionData);
+				
+				
+				$('#download').removeClass('hidden').addClass('visible');
+			});
+			
+			
+			
+			
+			
+			$('#reservebutton').click(function(e){
+				e.preventDefault();
+				if($('#reserveComment').val() == ''){
+					alert('Please enter comment');
+					return false;
+				}
+				else {
+					var btn = $(this);
+					btn.button('loading');
+					$sessionData.reason = $('#reserveComment').val();
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify($sessionData),
+						contentType: 'application/json',
+						url: '/doReservation',						
+						success: function(data) {
+							btn.button('reset');
+							alert(data.message);
+							timeRange == '00:00-00:00';
+							$sessionData.mc = '';
+							$sessionData.from = '';
+							$sessionData.to   = '';
+							$sessionData.reason = '';
+							$('#AvailablityTable').html('<img src="http://www.travislayne.com/images/loading.gif" class="icon" />');
+							
+							$.ajax({
+								type: 'POST',
+								data: JSON.stringify(dataR),
+								contentType: 'application/json',
+								url: '/availReservation',						
+								success: function(data) {
+									arrayOfBlockedTime = data.msg;
+									//$('#AvailablityTable').html('<img src="http://www.travislayne.com/images/loading.gif" class="icon" />');
+									//btn.button('reset');
+									var htmlString = '<div  class="table-responsive" style="height:300px;overflow-y:scroll;overflow-x:scroll;">';
+									htmlString = htmlString + '<table class="table table-hover" width="100%">';
+									//console.log(array['08:00-09:01']);
+									//console.log();
+									
+									htmlString = htmlString+ '<tr>';
+									var btnClass = '';
+									for(var i=0;i<=23;i++){
+										
+										if(i%3 == 0 && i !=0 ) {
+											htmlString = htmlString + '</tr>';
+											htmlString = htmlString + '<tr>';
+										}
+										
+										var f = i < 10 ? '0'+ i.toString() : i.toString();
+										var t = (i+1) < 10 ? '0'+ (i+1).toString() : (i+1).toString();
+										var timeString = f +':00-'+t+':00';
+										
+										if(data.msg[timeString] != undefined){
+										
+											btnClass = 'btn-danger';
+										}
+										else {
+											btnClass = 'btn-success clickable';
+										}
+										htmlString = htmlString + '<td><button type="button" id="'+timeString+'" value="'+timeString+'" class="btn '
+																+ btnClass+' btn-md">'+timeString+'</button></td>';
+										
+										
+								
+										
+									
+									}
+									htmlString = htmlString + '</tr></table>';
+									$('#AvailablityTable').html('');
+									//console.log(htmlString);
+									$('#AvailablityTable').html(htmlString);
+									//$('#submitbutton123').removeClass('hidden');
+									
+									
+								},
+								error: function (error) {
+									//btn.button('reset');
+									alert('error connecting to Server');
+								}
+								
+							});	
+										
+									},
+									error: function (error) {
+										btn.button('reset');
+										alert('error connecting Server');
+									}
+									
+								});	
+									
+							
+							
+							}
+							
+						});
+		
+                    var availableTags = [
+                      "ActionScript",
+                      "AppleScript",
+                      "Asp",
+                      "BASIC",
+                      "C",
+                      "C++",
+                      "Clojure",
+                      "COBOL",
+                      "ColdFusion",
+                      "Erlang",
+                      "Fortran",
+                      "Groovy",
+                      "Haskell",
+                      "Java",
+                      "JavaScript",
+                      "Lisp",
+                      "Perl",
+                      "PHP",
+                      "Python",
+                      "Ruby",
+                      "Scala",
+                      "Scheme"
+                    ];
+                    $( "#tags" ).autocomplete({
+                      source: availableTags
+                    });
+                    $( "#tags2" ).autocomplete({
+                      source: availableTags
+                    });
+		
+		
+		
+		
+		
+		
+		
+		});
+	</script>
+
+</body>
+
+</html>
